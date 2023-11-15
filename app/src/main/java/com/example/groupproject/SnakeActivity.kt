@@ -1,4 +1,12 @@
 package com.example.groupproject
 
-class SnakeActivity {
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+class SnakeActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_snake)
+    }
+
 }

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:theme="@style/TextTheme"
         android:textSize="50sp"
-        android:text="SNAKE"
+        android:text="@string/title"
         android:padding="10sp"
         android:onClick="changeScreen"
         android:background="@drawable/button_outlined"
@@ -26,11 +26,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id = "@+id/scoreboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/TextTheme"
         android:textSize="20sp"
-        android:text="SCOREBOARD"
+        android:text="@string/scoreboard"
         android:padding="10sp"
         android:onClick="changeScreen"
         android:background="@drawable/button_outlined"
