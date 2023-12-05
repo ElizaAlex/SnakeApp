@@ -13,19 +13,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeScreen(v: View){
-        lateinit var myIntent: Intent
-        when(v.id){
-            R.id.title->{
-                myIntent = Intent(this,SnakeActivity::class.java)
-                Log.w("MainActivity","Switching to SnakeActivity")
-                this.startActivity(myIntent)
-            }
-            R.id.scoreboard->{
-                throw Exception("Not Implemented")
-            }
-            else ->{
-                throw Exception("Not Implemented")
-            }
-        }
+        val snakeIntent = Intent(this, SnakeActivity::class.java)
+        this.startActivity(snakeIntent)
     }
 }
