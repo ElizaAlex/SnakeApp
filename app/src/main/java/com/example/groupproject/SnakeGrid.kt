@@ -1,5 +1,6 @@
 package com.example.groupproject
 
+import android.content.SharedPreferences
 import java.util.LinkedList
 import kotlin.random.Random
 
@@ -26,6 +27,7 @@ class SnakeGrid(private val rows: Int, private val cols: Int) {
         snake.addFirst(newHead)
 
         if (headCrashed()) {
+            snake.pop()
             gameOver = true
             return grid
         }
@@ -39,6 +41,10 @@ class SnakeGrid(private val rows: Int, private val cols: Int) {
 
         grid[newHead.second][newHead.first] = 1
         return grid
+    }
+
+    fun score(): Int {
+        return this.snake.size
     }
 
     private fun headCrashed(): Boolean {

@@ -1,13 +1,17 @@
 package com.example.groupproject
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import java.sql.Time
 import java.util.Timer
 
 class SnakeActivity : AppCompatActivity() {
 
     private lateinit var canvasView: CanvasView
+    private val timer: Timer = Timer()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val dispHeight = Resources.getSystem().displayMetrics.heightPixels.toFloat()
@@ -15,13 +19,23 @@ class SnakeActivity : AppCompatActivity() {
         this.canvasView = CanvasView(this, 10, 10, dispWidth, dispHeight)
         this.setContentView(this.canvasView)
 
-        val timer = Timer()
         val timerTask = GameTimerTask(this)
         timer.schedule(timerTask, 100L, TIMER_TICK)
     }
 
     fun updateGame() {
         this.canvasView.postInvalidate()
+        if (this.canvasView.grid.gameOver) {
+            this.finish()
+            this.timer.cancel()
+
+            val pref = getSharedPreferences("SnakeGame", Context.MODE_PRIVATE).edit()
+            pref.putInt("score", this.canvasView.grid.score())
+            pref.commit()
+
+            val intent = Intent(this, EndActivity::class.java)
+            this.startActivity(intent)
+        }
     }
 
     companion object {

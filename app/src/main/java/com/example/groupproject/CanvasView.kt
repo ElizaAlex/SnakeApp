@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import kotlin.math.pow
@@ -12,8 +11,13 @@ import kotlin.math.sqrt
 
 class CanvasView(context: Context, private val rows: Int, private val cols: Int, private val width: Float, private val height: Float): View(context), View.OnTouchListener {
 
+    init {
+        this.setOnTouchListener(this)
+    }
+
+    val grid: SnakeGrid = SnakeGrid(rows, cols)
+
     private val paint = Paint()
-    private val grid: SnakeGrid = SnakeGrid(rows, cols)
     private val controlHeight = height * 0.7f
     private val controlRadius = 100f
     private val leftCenter = Pair(width * 0.25f, (controlHeight + height) / 2f)
@@ -34,21 +38,16 @@ class CanvasView(context: Context, private val rows: Int, private val cols: Int,
             for (j in 0 ..< cols) {
                 paint.color = if (drawGrid[i][j] == 2) Color.RED else Color.GREEN
                 if (drawGrid[i][j] != 0) {
-                    Log.i("MainActivity", "$i $j $cellWidth $cellHeight $width $controlHeight")
                     canvas.drawRect(cellWidth * j, cellHeight * i, cellWidth * (j+1), cellHeight * (i+1), paint)
                 }
             }
         }
 
-
         paint.color = Color.MAGENTA
-        Log.i("MainActivity", "$leftCenter $rightCenter $upCenter $downCenter")
         canvas.drawCircle(leftCenter.first, leftCenter.second, controlRadius, paint)
         canvas.drawCircle(upCenter.first, upCenter.second, controlRadius, paint)
         canvas.drawCircle(rightCenter.first, rightCenter.second, controlRadius, paint)
         canvas.drawCircle(downCenter.first, downCenter.second, controlRadius, paint)
-
-        this.setOnTouchListener(this)
     }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
