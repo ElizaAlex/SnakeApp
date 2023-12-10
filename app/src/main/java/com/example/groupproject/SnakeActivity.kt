@@ -35,6 +35,7 @@ class SnakeActivity : AppCompatActivity() {
 
             val intent = Intent(this, EndActivity::class.java)
             this.startActivity(intent)
+            overridePendingTransition(R.anim.zoom_in, R.anim.static_animimation)
         }
     }
 

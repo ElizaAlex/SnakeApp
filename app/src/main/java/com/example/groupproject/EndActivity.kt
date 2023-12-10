@@ -80,6 +80,7 @@ class EndActivity : AppCompatActivity() {
         val intent = Intent(this, SnakeActivity::class.java)
         this.finish()
         this.startActivity(intent)
+        overridePendingTransition(R.anim.zoom_in, R.anim.static_animimation)
     }
 
     fun email(v: View) {

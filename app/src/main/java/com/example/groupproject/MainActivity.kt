@@ -15,5 +15,6 @@ class MainActivity : AppCompatActivity() {
     fun changeScreen(v: View){
         val snakeIntent = Intent(this, SnakeActivity::class.java)
         this.startActivity(snakeIntent)
+        overridePendingTransition(R.anim.slide, R.anim.static_animimation)
     }
 }
