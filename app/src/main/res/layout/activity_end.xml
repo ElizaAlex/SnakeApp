@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".EndActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"/>
+
     <LinearLayout
         android:id="@+id/ad_view"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="128dp"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
