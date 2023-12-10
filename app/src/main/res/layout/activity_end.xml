@@ -72,15 +72,15 @@
         android:onClick="replay"/>
 
     <Button
+        android:id="@+id/changeColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/changeColor"
-        android:text="Chnage Color"
-        android:textSize="30dp"
-        android:theme="@style/TextTheme"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/green"
+        android:layout_below="@id/replay_button"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/replay_button" />
+        android:backgroundTint="@color/black"
+        android:text="Change Color"
+        android:textColor="@color/green"
+        android:textSize="30dp"
+        android:theme="@style/TextTheme" />
 
 </RelativeLayout>
