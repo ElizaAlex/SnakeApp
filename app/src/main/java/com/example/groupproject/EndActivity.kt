@@ -10,6 +10,7 @@ import android.view.View
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.LayerDrawable
+import android.util.Log
 import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.TextView
@@ -21,15 +22,26 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 class EndActivity : AppCompatActivity() {
 
     private var score: Int = 0
+    private var hiscore: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end)
 
         val pref = getSharedPreferences("SnakeGame", Context.MODE_PRIVATE)
+        val editor = pref.edit()
         this.score = pref.getInt("score", 0)
+        this.hiscore = pref.getInt("hiscore",0)
+        if(score>hiscore) {
+            Log.w("MainActivity","New High Score!")
+            editor.putInt("hiscore",score)
+            editor.commit()
+            this.hiscore = score
+            findViewById<TextView>(R.id.hiscore).text = "NEW HIGH SCORE"
+        }
 
         findViewById<TextView>(R.id.end_score_text).text = "SCORE: $score"
+
 
         val ratingBar = findViewById<RatingBar>(R.id.ratingBar)
         ratingBar.rating = 2.5f

@@ -15,7 +15,9 @@
         android:id="@+id/ad_view"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="128dp"/>
+        android:layout_height="128dp">
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +31,7 @@
         android:text="SCORE: "
         android:theme="@style/TextTheme"/>
 
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
@@ -40,47 +43,63 @@
         android:progressTint="@color/green"
         android:secondaryProgressTint="#363636"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/email_button"
+        android:layout_marginTop="5dp"
         android:text="Share"
+        android:background="@drawable/button_outlined"
         android:textSize="24dp"
         android:theme="@style/TextTheme"
-        android:backgroundTint="#000000"
         android:textColor="@color/green"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/end_score_text"
+        android:layout_below="@id/hiscore"
         android:onClick="email"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/replay_button"
         android:text="Replay"
         android:textSize="60dp"
         android:theme="@style/TextTheme"
-        android:backgroundTint="@color/black"
+        android:background="@drawable/button_outlined"
+        android:padding = "10dp"
         android:textColor="@color/green"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/end_score_text"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="140dp"
         android:onClick="replay"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/changeColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/replay_button"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/black"
+        android:background= "@drawable/button_outlined"
+        android:layout_marginTop="10dp"
         android:text="Change Color"
         android:textColor="@color/green"
-        android:textSize="30dp"
+        android:padding="10dp"
+        android:textSize="25dp"
+        android:theme="@style/TextTheme" />
+
+    <TextView
+        android:id="@+id/hiscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_below="@id/end_score_text"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:text=""
         android:theme="@style/TextTheme" />
 
 </RelativeLayout>
