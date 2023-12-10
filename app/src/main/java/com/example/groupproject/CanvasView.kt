@@ -15,18 +15,20 @@ class CanvasView(context: Context, private val rows: Int, private val cols: Int,
         this.setOnTouchListener(this)
     }
 
-    val grid: SnakeGrid = SnakeGrid(rows, cols)
+
     val snakeColor = Color.GREEN
 
+    private val cellWidth = width / cols
+    private val cellHeight = cellWidth
     private val paint = Paint()
-    private val controlHeight = height * 0.7f
+    private val controlHeight = cellHeight*rows
     private val controlRadius = 100f
     private val leftCenter = Pair(width * 0.25f, (controlHeight + height) / 2f)
     private val upCenter = Pair(width / 2f, (controlHeight + height - 250f) / 2f)
     private val rightCenter = Pair(width * 0.75f, (controlHeight + height) / 2f)
     private val downCenter = Pair(width / 2f, (controlHeight + height + 250f) / 2f)
-    private val cellWidth = width / cols
-    private val cellHeight = controlHeight / rows
+
+    val grid: SnakeGrid = SnakeGrid(rows,cols)
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

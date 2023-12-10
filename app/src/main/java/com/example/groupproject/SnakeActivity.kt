@@ -16,7 +16,7 @@ class SnakeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val dispHeight = Resources.getSystem().displayMetrics.heightPixels.toFloat()
         val dispWidth = Resources.getSystem().displayMetrics.widthPixels.toFloat()
-        this.canvasView = CanvasView(this, 10, 10, dispWidth, dispHeight)
+        this.canvasView = CanvasView(this, 13, 10, dispWidth, dispHeight)
         this.setContentView(this.canvasView)
 
         val timerTask = GameTimerTask(this)
@@ -24,7 +24,6 @@ class SnakeActivity : AppCompatActivity() {
     }
 
     fun updateGame() {
-        this.canvasView.postInvalidate()
         if (this.canvasView.grid.gameOver) {
             this.finish()
             this.timer.cancel()
@@ -37,6 +36,7 @@ class SnakeActivity : AppCompatActivity() {
             this.startActivity(intent)
             overridePendingTransition(R.anim.zoom_in, R.anim.static_animimation)
         }
+        this.canvasView.postInvalidate()
     }
 
     companion object {
