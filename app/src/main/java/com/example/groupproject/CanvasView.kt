@@ -16,6 +16,7 @@ class CanvasView(context: Context, private val rows: Int, private val cols: Int,
     }
 
     val grid: SnakeGrid = SnakeGrid(rows, cols)
+    val snakeColor = Color.GREEN
 
     private val paint = Paint()
     private val controlHeight = height * 0.7f
@@ -36,7 +37,7 @@ class CanvasView(context: Context, private val rows: Int, private val cols: Int,
         val drawGrid = grid.update()
         for (i in 0..< rows) {
             for (j in 0 ..< cols) {
-                paint.color = if (drawGrid[i][j] == 2) Color.RED else Color.GREEN
+                paint.color = if (drawGrid[i][j] == 2) Color.RED else snakeColor
                 if (drawGrid[i][j] != 0) {
                     canvas.drawRect(cellWidth * j, cellHeight * i, cellWidth * (j+1), cellHeight * (i+1), paint)
                 }

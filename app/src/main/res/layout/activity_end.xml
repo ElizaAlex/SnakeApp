@@ -10,27 +10,49 @@
         android:id="@+id/ad_view"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="128dp"/>
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
         android:gravity="center"
         android:textAlignment="center"
         android:id="@+id/end_score_text"
-        android:textSize="30dp"
-        android:text="Score: "/>
+        android:textSize="60dp"
+        android:text="SCORE: "
+        android:theme="@style/TextTheme"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/changeColor"
+        android:progressBackgroundTint="#363636"
+        android:progressTint="@color/green"
+        android:secondaryProgressTint="#363636"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/email_button"
         android:text="Share"
-        android:textSize="30dp"
-        android:layout_marginTop="400dp"
+        android:textSize="24dp"
+        android:theme="@style/TextTheme"
+        android:backgroundTint="#000000"
+        android:textColor="@color/green"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/end_score_text"
         android:onClick="email"/>
 
     <Button
@@ -38,11 +60,27 @@
         android:layout_height="wrap_content"
         android:id="@+id/replay_button"
         android:text="Replay"
-        android:textSize="30dp"
+        android:textSize="60dp"
+        android:theme="@style/TextTheme"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/green"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/email_button"
+        android:layout_below="@id/end_score_text"
+        android:layout_marginTop="128dp"
         android:onClick="replay"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/changeColor"
+        android:text="Chnage Color"
+        android:textSize="30dp"
+        android:theme="@style/TextTheme"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/green"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/replay_button" />
 
 </RelativeLayout>
