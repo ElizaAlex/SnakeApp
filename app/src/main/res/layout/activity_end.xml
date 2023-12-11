@@ -36,12 +36,26 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="96dp"
         android:layout_centerInParent="true"
         android:layout_below="@id/changeColor"
         android:progressBackgroundTint="#363636"
         android:progressTint="@color/green"
         android:secondaryProgressTint="#363636"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/newRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/changeColor"
+        android:padding = "10dp"
+        android:text="SUBMIT RATING"
+        android:background="@drawable/button_outlined"
+        android:theme="@style/TextTheme"
+        android:textColor="@color/green"/>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="wrap_content"

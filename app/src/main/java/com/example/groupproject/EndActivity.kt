@@ -23,6 +23,8 @@ class EndActivity : AppCompatActivity() {
 
     private var score: Int = 0
     private var hiscore: Int = 0
+    private var userRating: Float = 0f
+    private var snakeColor : Int = Color.GREEN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,8 @@ class EndActivity : AppCompatActivity() {
         val editor = pref.edit()
         this.score = pref.getInt("score", 0)
         this.hiscore = pref.getInt("hiscore",0)
+        this.userRating = pref.getFloat("userRating", 2.5f)
+        this.snakeColor = pref.getInt("snakeColor", Color.GREEN)
         if(score>hiscore) {
             Log.w("MainActivity","New High Score!")
             editor.putInt("hiscore",score)
@@ -44,8 +48,16 @@ class EndActivity : AppCompatActivity() {
 
 
         val ratingBar = findViewById<RatingBar>(R.id.ratingBar)
-        ratingBar.rating = 2.5f
+        ratingBar.rating = userRating
         ratingBar.stepSize = .5f
+
+        val newRating = findViewById<Button>(R.id.newRating)
+        newRating.setOnClickListener {
+            Log.w("MainActivity", ratingBar.rating.toString())
+            editor.putFloat("userRating", ratingBar.rating)
+            editor.commit()
+        }
+
 
         val changeColor = findViewById<Button>(R.id.changeColor)
 
@@ -58,13 +70,17 @@ class EndActivity : AppCompatActivity() {
                 val selected = color.title
 
                 if (selected == "Green") {
-
+                    editor.putInt("snakeColor", Color.GREEN)
+                    editor.commit()
                 } else if (selected == "Blue") {
-
+                    editor.putInt("snakeColor", Color.BLUE)
+                    editor.commit()
                 } else if (selected == "Yellow") {
-
+                    editor.putInt("snakeColor", Color.YELLOW)
+                    editor.commit()
                 } else if (selected == "Pink") {
-
+                    editor.putInt("snakeColor", Color.MAGENTA)
+                    editor.commit()
                 }
 
                 true

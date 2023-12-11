@@ -9,14 +9,15 @@ import android.view.View
 import kotlin.math.pow
 import kotlin.math.sqrt
 
+
 class CanvasView(context: Context, private val rows: Int, private val cols: Int, private val width: Float, private val height: Float): View(context), View.OnTouchListener {
 
     init {
         this.setOnTouchListener(this)
     }
 
-
-    val snakeColor = Color.GREEN
+    val pref = context.getSharedPreferences("SnakeGame", Context.MODE_PRIVATE)
+    val snakeColor = pref.getInt("snakeColor", Color.GREEN)
 
     private val cellWidth = width / cols
     private val cellHeight = cellWidth
